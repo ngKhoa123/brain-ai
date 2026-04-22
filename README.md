@@ -26,14 +26,14 @@ Users can upload an MRI image and get predictions from two different approaches,
 
 This project follows an end-to-end pipeline:
 
-- Data → Model → Web → Deploy
+- Data → Model → Web
 ---
 
 ## ⚠️ Disclaimer
 
-> ⚠️ This AI model is trained on the BRISC2025 Kaggle dataset.
-> It is for educational/demo purposes only and
-> **does NOT replace professional medical diagnosis**.
+ ⚠️ This AI model is trained on the BRISC2025 Kaggle dataset.
+ It is for educational/demo purposes only and
+ **does NOT replace professional medical diagnosis**.
 
 ---
 
