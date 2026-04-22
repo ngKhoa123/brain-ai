@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Brain Tumor AI</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🧠 Brain Tumor AI</h1>
+<p class="subtitle">Compare Deep Learning vs SVM instantly</p>
+
+<!-- 🔥 WARNING -->
+<div class="warning-box">
+    ⚠️ This AI model is trained on the BRISC2025 Kaggle dataset.<br>
+    It is for educational/demo purposes only and <b>does NOT replace medical diagnosis</b>.
+</div>
+
+<!-- FORM -->
+<form method="POST" enctype="multipart/form-data" class="form-row" id="uploadForm">
+
+    <label class="upload-box" id="uploadBox">
+        <span id="uploadText">📂 Upload MRI</span>
+        <input type="file" name="file" id="fileInput" required>
+    </label>
+
+    <button type="submit" id="analyzeBtn">Analyze</button>
+
+</form>
+
+<p id="fileStatus" class="file-status"></p>
+
+{% if not dl_prediction %}
+<p class="empty">👉 Please upload an MRI image to start</p>
+{% endif %}
+
+<!-- IMAGE -->
+{% if image_url %}
+<div class="result-image">
+    <img src="{{ image_url }}">
+</div>
+{% endif %}
+
+<!-- RESULTS -->
+{% if dl_prediction %}
+<div class="results-grid">
+
+    <div class="model dl">
+        <h3>🧠 Deep Learning</h3>
+        <p class="main">{{ dl_prediction }} ({{ dl_confidence }}%)</p>
+
+        {% for r in dl_results %}
+        <div class="row">
+            <span>{{ r.label }}</span>
+            <span>{{ r.prob }}%</span>
+        </div>
+        <div class="bar">
+            <div class="fill dl-fill" style="width: {{ r.prob }}%"></div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="model svm">
+        <h3>⚙️ SVM</h3>
+        <p class="main">{{ svm_prediction }} ({{ svm_confidence }}%)</p>
+
+        {% for r in svm_results %}
+        <div class="row">
+            <span>{{ r.label }}</span>
+            <span>{{ r.prob }}%</span>
+        </div>
+        <div class="bar">
+            <div class="fill svm-fill" style="width: {{ r.prob }}%"></div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endif %}
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
