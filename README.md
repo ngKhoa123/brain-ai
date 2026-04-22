@@ -23,7 +23,10 @@ This project classifies brain MRI images into 4 categories:
 * No tumor
 
 Users can upload an MRI image and get predictions from two different approaches, enabling direct comparison.
-end-to-end pipeline: (data → model → web → deploy)
+
+This project follows an end-to-end pipeline:
+
+- Data → Model → Web → Deploy
 ---
 
 ## ⚠️ Disclaimer
