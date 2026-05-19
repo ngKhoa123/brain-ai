@@ -9,7 +9,7 @@ A full-stack AI web application for brain tumor classification from MRI images, 
 
 ## Live Demo
 
-https://your-render-link.onrender.com
+https://huggingface.co/spaces/Ngdkhoa/brain-tumor-ai
 
 ---
 
